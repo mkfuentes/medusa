@@ -4,13 +4,12 @@ import Add from "./views/Add";
 import Edit from "./views/Edit";
 import Resumen from "./views/Resumen";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Dashboard from './components/DashBoard'
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-      <Dashboard />
+      
           <Switch>
           <React.Fragment>
           <Route path="/" component={Resumen} exact />
