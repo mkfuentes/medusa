@@ -10,6 +10,7 @@ import AddShoppingCartOutlinedIcon from "@material-ui/icons/AddShoppingCartOutli
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Dashboard from "../components/DashBoard";
 
 function Copyright() {
   return (
@@ -48,7 +49,8 @@ export default function Add() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xl">
+      <Dashboard />
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -58,7 +60,7 @@ export default function Add() {
           Agregar Producto
         </Typography>
         <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
+          <Grid container spacing={3}>
             <Grid item xs={12} sm={12}>
               <TextField
                 autoComplete="false"

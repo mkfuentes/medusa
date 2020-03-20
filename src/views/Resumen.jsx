@@ -5,6 +5,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import Listitem from '../components/ListItem'
+import Dashboard from "../components/DashBoard";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -68,6 +71,7 @@ export default function Resumen() {
 
   return (
     <div className={classes.root}>
+      <Dashboard />
       <CssBaseline />>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
