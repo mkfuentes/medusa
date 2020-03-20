@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -25,6 +26,20 @@ function Copyright() {
 }
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex"
+  },
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    height: "100vh",
+    overflow: "auto"
+  },
+  containerbox: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
@@ -46,12 +61,23 @@ const useStyles = makeStyles(theme => ({
 
 export default function Edit() {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(true);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
 
   return (
-    <Container component="main" maxWidth="xs">
-   
+     <div className={classes.root}>
+      <Dashboard />
       <CssBaseline />
-      <div className={classes.paper}>
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="md" className={classes.containerbox}>
         <Avatar className={classes.avatar}>
           <EditOutlinedIcon />
         </Avatar>
@@ -125,10 +151,11 @@ export default function Edit() {
             Modificar Producto
           </Button>
         </form>
-      </div>
+        </Container>
+        </main>
       <Box mt={5}>
         <Copyright />
       </Box>
-    </Container>
+    </div>
   );
 }

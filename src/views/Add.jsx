@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -26,6 +27,20 @@ function Copyright() {
 }
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex"
+  },
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    height: "100vh",
+    overflow: "auto"
+  },
+  containerbox: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
@@ -34,7 +49,10 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -47,90 +65,104 @@ const useStyles = makeStyles(theme => ({
 
 export default function Add() {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(true);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
 
   return (
-    <Container component="main" maxWidth="xl">
+    <div className={classes.root}>
       <Dashboard />
       <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <AddShoppingCartOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Agregar Producto
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={12}>
-              <TextField
-                autoComplete="false"
-                name="fCodigo de Barras"
-                variant="outlined"
-                required
-                fullWidth
-                id="barCode"
-                label="Codigo de Barras"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="Description"
-                label="Descripcion"
-                name="Description"
-                autoComplete="Description"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="pricePublic"
-                label="Precio Publico"
-                name="price public"
-                type="number"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                name="priceStore"
-                label="Precio Compra"
-                type="number"
-                id="priceStore"
-              />
-            </Grid>
-            <Grid item xs={12} sm={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="departmento"
-                label="Departamento"
-                name="departamento"
-                autoComplete="departamento"
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="succes"
-            className={classes.submit}
-          >
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="md" className={classes.containerbox}>
+          <Avatar className={classes.avatar}>
+            <AddShoppingCartOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
             Agregar Producto
-          </Button>
-        </form>
-      </div>
+          </Typography>
+          <form className={classes.form} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={12}>
+                <TextField
+                  autoComplete="false"
+                  name="fCodigo de Barras"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="barCode"
+                  label="Codigo de Barras"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="Description"
+                  label="Descripcion"
+                  name="Description"
+                  autoComplete="Description"
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="pricePublic"
+                  label="Precio Publico"
+                  name="price public"
+                  type="number"
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  name="priceStore"
+                  label="Precio Compra"
+                  type="number"
+                  id="priceStore"
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="departmento"
+                  label="Departamento"
+                  name="departamento"
+                  autoComplete="departamento"
+                />
+              </Grid>
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="succes"
+                className={classes.submit}
+              >
+                Agregar Producto
+              </Button>
+            </Grid>
+          </form>
+        </Container>
+      </main>
       <Box mt={5}>
         <Copyright />
       </Box>
-    </Container>
+    </div>
   );
 }

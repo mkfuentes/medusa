@@ -78,7 +78,7 @@ export default function Sell() {
   return (
     <div className={classes.root}>
       <Dashboard />
-      <CssBaseline />>
+      <CssBaseline />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
