@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react' 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -44,7 +44,35 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Add() {
+export default function Add(props) {
+
+  const [codeBar,setCodeBar] = useState('')
+  const [description,setDescription] = useState('')
+  const [pricePublic,setPricePublic] = useState('')
+  const [priceStore,setPriceStore] = useState('')
+  const [department,setDepartment] = useState('')
+  
+  function onSubmit (event) {
+    event.preventDefault()
+
+    if (props.onSubmit) {
+      props.onSubmit({
+        codeBar,
+        description,
+        pricePublic,
+        priceStore,
+        department
+      })
+    }
+
+    setCodeBar('')
+    setDescription('')
+    setPricePublic('')
+    setPriceStore('')
+    setDepartment('')
+  }
+
+
   const classes = useStyles();
 
   return (
@@ -57,10 +85,13 @@ export default function Add() {
         <Typography component="h1" variant="h5">
           Agregar Producto
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate
+        onSubmit={onSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
+                value={codeBar}
+                onChange={(event) => setCodeBar(event.target.value)}
                 autoComplete="false"
                 name="Codigo de Barras"
                 variant="outlined"
@@ -68,6 +99,7 @@ export default function Add() {
                 fullWidth
                 id="barCode"
                 label="Codigo de Barras"
+
                 autoFocus
               />
             </Grid>
@@ -80,6 +112,8 @@ export default function Add() {
                 label="Descripcion"
                 name="Description"
                 autoComplete="Description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -91,6 +125,8 @@ export default function Add() {
                 label="Precio Publico"
                 name="price public"
                 type="number"
+                value={pricePublic}
+                onChange={(event) => setPricePublic(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -101,6 +137,8 @@ export default function Add() {
                 label="Precio Compra"
                 type="number"
                 id="priceStore"
+                value={priceStore}
+                onChange={(event) => setPriceStore(event.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -112,6 +150,8 @@ export default function Add() {
                 label="Departamento"
                 name="departamento"
                 autoComplete="departamento"
+                value={department}
+                onChange={(event) => setDepartment(event.target.value)}
               />
             </Grid>
           </Grid>

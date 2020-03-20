@@ -9,7 +9,8 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    
   },
   toolbarIcon: {
     display: "flex",
@@ -68,7 +69,7 @@ export default function Resumen() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />>
+      <CssBaseline />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>

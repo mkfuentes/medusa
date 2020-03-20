@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react' 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -44,7 +44,36 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function FormEdit() {
+export default function FormEdit(props) {
+
+  const [codeBar,setCodeBar] = useState('')
+  const [description,setDescription] = useState('')
+  const [pricePublic,setPricePublic] = useState('')
+  const [priceStore,setPriceStore] = useState('')
+  const [department,setDepartment] = useState('')
+  
+  function onSubmit (event) {
+    event.preventDefault()
+
+    if (props.onSubmit) {
+      props.onSubmit({
+        codeBar,
+        description,
+        pricePublic,
+        priceStore,
+        department
+      })
+    }
+
+    setCodeBar('')
+    setDescription('')
+    setPricePublic('')
+    setPriceStore('')
+    setDepartment('')
+  }
+
+
+
   const classes = useStyles();
 
   return (
@@ -57,7 +86,7 @@ export default function FormEdit() {
         <Typography component="h1" variant="h5">
           Modificar Producto
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={onSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
@@ -69,6 +98,8 @@ export default function FormEdit() {
                 id="barCode"
                 label="Codigo de Barras"
                 autoFocus
+                value={codeBar}
+                onChange={(event) => setCodeBar(event.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -77,9 +108,11 @@ export default function FormEdit() {
                 required
                 fullWidth
                 id="Description"
-                label="Descripc ion"
+                label="Descripcion"
                 name="Description"
                 autoComplete="Description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -91,6 +124,8 @@ export default function FormEdit() {
                 label="Precio Publico"
                 name="price public"
                 type="number"
+                value={pricePublic}
+                onChange={(event) => setPricePublic(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -101,6 +136,8 @@ export default function FormEdit() {
                 label="Precio Compra"
                 type="number"
                 id="priceStore"
+                value={priceStore}
+                onChange={(event) => setPriceStore(event.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -111,6 +148,8 @@ export default function FormEdit() {
                 label="Departamento"
                 name="departamento"
                 autoComplete="departamento"
+                value={department}
+                onChange={(event) => setDepartment(event.target.value)}
               />
             </Grid>
           </Grid>
