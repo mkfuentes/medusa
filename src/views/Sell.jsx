@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react' 
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -7,40 +7,12 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Input from "@material-ui/core/Input";
 import Orders from "../components/Orders";
+import Dashboard from '../components/DashBoard'
 
-const drawerWidth = 240;
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex"
-  },
-
-  toolbarIcon: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: "0 8px",
-    ...theme.mixins.toolbar
-  },
-
-  drawerPaper: {
-    position: "relative",
-    whiteSpace: "nowrap",
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  drawerPaperClose: {
-    overflowX: "hidden",
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    width: theme.spacing(7),
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9)
-    }
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
@@ -63,30 +35,50 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Sell() {
+export default function Sell(props) {
+  const [codeBar,setCodeBar] = useState('')
+  function onSubmit (event) {
+    event.preventDefault()
+
+    if (props.onSubmit) {
+      props.onSubmit({
+        codeBar,
+      })
+    }
+
+    setCodeBar('')
+  
+  }
+
+
+  
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
+    
     <div className={classes.root}>
-      <CssBaseline />>
+      <Dashboard />
+      <CssBaseline />
+      <form className={classes.form} noValidate
+        onSubmit={onSubmit}>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
+
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* CodeBar */}
-            <Grid item xs={12} md={8}>
+        
+            <Grid item xs={12} md={8} onSubmit={onSubmit}>
               <Paper className={classes.paper}>
-                <Input id="codebar" placeholder="BarCode" />
+                <Input id="codebar" 
+                placeholder="BarCode" 
+                autoFocus
+                value={codeBar}
+                onChange={(event) => setCodeBar(event.target.value)}/>
               </Paper>
             </Grid>
+            
             {/* Orders */}
             <Grid item xs={12} md={8}>
               <Paper className={fixedHeightPaper}>
@@ -95,11 +87,15 @@ export default function Sell() {
             </Grid>
             {/* Total */}
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}></Paper>
+              <Paper className={fixedHeightPaper}>
+
+              </Paper>
             </Grid>
           </Grid>
         </Container>
       </main>
+      </form>
     </div>
+    
   );
 }
