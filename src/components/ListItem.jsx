@@ -14,14 +14,6 @@ function ListItems() {
     <div>
       <ListItem button>
         <ListItemIcon>
-          <DashboardIcon />
-        </ListItemIcon>
-        <Link to="/sell">
-          <ListItemText primary="Venta" />
-        </Link>
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
           <ShoppingCartIcon />
         </ListItemIcon>
         <Link to="/add">
@@ -38,17 +30,19 @@ function ListItems() {
       </ListItem>
       <ListItem button>
         <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <Link to="/sell">
+          <ListItemText primary="Venta" />
+        </Link>
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
         <Link to="/">
           <ListItemText primary="Reportes" />
         </Link>
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <LayersIcon />
-        </ListItemIcon>
-        <ListItemText primary="Integrations" />
       </ListItem>
     </div>
   );
