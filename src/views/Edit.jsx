@@ -10,7 +10,7 @@ import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
+import Dashboard from "../components/DashBoard";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -49,6 +49,7 @@ export default function Edit() {
 
   return (
     <Container component="main" maxWidth="xs">
+   
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -77,7 +78,7 @@ export default function Edit() {
                 required
                 fullWidth
                 id="Description"
-                label="Descripc ion"
+                label="Descripcion"
                 name="Description"
                 autoComplete="Description"
               />

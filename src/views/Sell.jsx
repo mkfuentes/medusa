@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Input from "@material-ui/core/Input";
 import Orders from "../components/Orders";
+import Dashboard from "../components/DashBoard";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -76,6 +77,7 @@ export default function Sell() {
 
   return (
     <div className={classes.root}>
+      <Dashboard />
       <CssBaseline />>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
