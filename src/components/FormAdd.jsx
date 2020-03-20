@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import AddShoppingCartOutlinedIcon from "@material-ui/icons/AddShoppingCartOutlined";
+import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Add(props) {
+export default function FormAdd(props) {
 
   const [codeBar,setCodeBar] = useState('')
   const [description,setDescription] = useState('')
@@ -73,27 +73,23 @@ export default function Add(props) {
   }
 
 
+
   const classes = useStyles();
 
   return (
-    
     <Container component="main" maxWidth="xs">
-      
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <AddShoppingCartOutlinedIcon />
+          <EditOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Agregar Producto
         </Typography>
-        <form className={classes.form} noValidate
-        onSubmit={onSubmit}>
+        <form className={classes.form} onSubmit={onSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
-                value={codeBar}
-                onChange={(event) => setCodeBar(event.target.value)}
                 autoComplete="false"
                 name="Codigo de Barras"
                 variant="outlined"
@@ -101,8 +97,9 @@ export default function Add(props) {
                 fullWidth
                 id="barCode"
                 label="Codigo de Barras"
-
                 autoFocus
+                value={codeBar}
+                onChange={(event) => setCodeBar(event.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -146,7 +143,6 @@ export default function Add(props) {
             <Grid item xs={12} sm={12}>
               <TextField
                 variant="outlined"
-                required
                 fullWidth
                 id="departmento"
                 label="Departamento"

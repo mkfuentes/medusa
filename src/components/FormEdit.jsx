@@ -91,7 +91,7 @@ export default function FormEdit(props) {
             <Grid item xs={12} sm={12}>
               <TextField
                 autoComplete="false"
-                name="fCodigo de Barras"
+                name="Codigo de Barras"
                 variant="outlined"
                 required
                 fullWidth
