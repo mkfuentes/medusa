@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Switch>
+      
           <Switch>
           <React.Fragment>
           <Route path="/" component={Resumen} exact />
