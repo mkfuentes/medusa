@@ -7,7 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Input from "@material-ui/core/Input";
 import Orders from "../components/Orders";
-import Dashboard from "../components/DashBoard";
 import Dashboard from '../components/DashBoard'
 
 
@@ -61,10 +60,8 @@ export default function Sell(props) {
     <div className={classes.root}>
       <Dashboard />
       <CssBaseline />
-
       <form className={classes.form} noValidate
         onSubmit={onSubmit}>
-
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
 
