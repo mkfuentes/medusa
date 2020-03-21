@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
-          <Switch>
+          
           <React.Fragment>
           <Route path="/" component={Resumen} exact />
           <Route path="/add" component={Add} exact />

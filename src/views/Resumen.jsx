@@ -9,7 +9,6 @@ import Paper from "@material-ui/core/Paper";
 import Listitem from '../components/ListItem'
 import Dashboard from "../components/DashBoard";
 
-import Dashboard from '../components/DashBoard'
 
 const drawerWidth = 240;
 
@@ -77,9 +76,9 @@ export default function Resumen() {
     <div className={classes.root}>
 
       <Dashboard />
-      <CssBaseline />>
+      <CssBaseline />
 
-      <Dashboard/>
+      
       <CssBaseline />
 
       <main className={classes.content}>

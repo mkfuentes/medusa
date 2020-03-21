@@ -8,7 +8,6 @@ import Paper from "@material-ui/core/Paper";
 import Input from "@material-ui/core/Input";
 import Orders from "../components/Orders";
 import Dashboard from "../components/DashBoard";
-import Dashboard from '../components/DashBoard'
 
 
 const useStyles = makeStyles(theme => ({

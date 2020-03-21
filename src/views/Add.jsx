@@ -12,7 +12,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Dashboard from "../components/DashBoard";
-import React from 'react'
 import FormAdd from '../components/FormAdd'
 //import api from '../lib/api'
 
@@ -149,25 +148,8 @@ export default function Add() {
           </form>
         </Container>
       </main>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
+      
     </div>
   );
-
-function Add (props) {
-  // async function onSubmit (post) {
-  //   const payload = await api.newPost(post)
-  //   console.log(payload)
-
-  //   window.alert(payload.data.post._id)
-
-  //   props.history.push('/')
-  // }
-
-  return (
-    <FormAdd
-    />
-  )
 }
-export default Add
+

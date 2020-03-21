@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Dashboard from "../components/DashBoard";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -158,29 +159,26 @@ export default function Edit() {
       </Box>
     </div>
   );
+  }
+// import React from 'react'
 
-import React from 'react'
+// import FormEdit from '../components/FormEdit'
 
-import FormEdit from '../components/FormEdit'
+// //import api from '../lib/api'
 
-//import api from '../lib/api'
+// function Edit (props) {
+//   // async function onSubmit (post) {
+//   //   const payload = await api.newPost(post)
+//   //   console.log(payload)
 
-function Edit (props) {
-  // async function onSubmit (post) {
-  //   const payload = await api.newPost(post)
-  //   console.log(payload)
+//   //   window.alert(payload.data.post._id)
 
-  //   window.alert(payload.data.post._id)
+//   //   props.history.push('/')
+//   // }
 
-  //   props.history.push('/')
-  // }
-
-  return (
-    <FormEdit
+//   return (
+//     <FormEdit
      
-    />
-  )
+//     />
+//   )
 
-}
-
-export default Edit
