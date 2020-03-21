@@ -12,19 +12,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Dashboard from "../components/DashBoard";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Medusa Project
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import React from 'react'
+import FormAdd from '../components/FormAdd'
+//import api from '../lib/api'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -73,7 +63,6 @@ export default function Add() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
 
   return (
     <div className={classes.root}>
@@ -165,4 +154,20 @@ export default function Add() {
       </Box>
     </div>
   );
+
+function Add (props) {
+  // async function onSubmit (post) {
+  //   const payload = await api.newPost(post)
+  //   console.log(payload)
+
+  //   window.alert(payload.data.post._id)
+
+  //   props.history.push('/')
+  // }
+
+  return (
+    <FormAdd
+    />
+  )
 }
+export default Add

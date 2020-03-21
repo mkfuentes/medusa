@@ -1,5 +1,4 @@
-import React from "react";
-import clsx from "clsx";
+import React, { useState } from 'react' 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,7 +10,7 @@ import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Dashboard from "../components/DashBoard";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -26,20 +25,6 @@ function Copyright() {
 }
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex"
-  },
-  appBarSpacer: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    height: "100vh",
-    overflow: "auto"
-  },
-  containerbox: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
-  },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
@@ -59,43 +44,62 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Edit() {
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+export default function FormEdit(props) {
 
+  const [codeBar,setCodeBar] = useState('')
+  const [description,setDescription] = useState('')
+  const [pricePublic,setPricePublic] = useState('')
+  const [priceStore,setPriceStore] = useState('')
+  const [department,setDepartment] = useState('')
+  
+  function onSubmit (event) {
+    event.preventDefault()
+
+    if (props.onSubmit) {
+      props.onSubmit({
+        codeBar,
+        description,
+        pricePublic,
+        priceStore,
+        department
+      })
+    }
+
+    setCodeBar('')
+    setDescription('')
+    setPricePublic('')
+    setPriceStore('')
+    setDepartment('')
+  }
+
+
+
+  const classes = useStyles();
 
   return (
-     <div className={classes.root}>
-      <Dashboard />
+    <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="md" className={classes.containerbox}>
+      <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <EditOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Modificar Producto
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={onSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
                 autoComplete="false"
-                name="fCodigo de Barras"
+                name="Codigo de Barras"
                 variant="outlined"
                 required
                 fullWidth
                 id="barCode"
                 label="Codigo de Barras"
                 autoFocus
+                value={codeBar}
+                onChange={(event) => setCodeBar(event.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -107,6 +111,8 @@ export default function Edit() {
                 label="Descripcion"
                 name="Description"
                 autoComplete="Description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -118,6 +124,8 @@ export default function Edit() {
                 label="Precio Publico"
                 name="price public"
                 type="number"
+                value={pricePublic}
+                onChange={(event) => setPricePublic(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -128,6 +136,8 @@ export default function Edit() {
                 label="Precio Compra"
                 type="number"
                 id="priceStore"
+                value={priceStore}
+                onChange={(event) => setPriceStore(event.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={12}>
@@ -138,6 +148,8 @@ export default function Edit() {
                 label="Departamento"
                 name="departamento"
                 autoComplete="departamento"
+                value={department}
+                onChange={(event) => setDepartment(event.target.value)}
               />
             </Grid>
           </Grid>
@@ -151,36 +163,10 @@ export default function Edit() {
             Modificar Producto
           </Button>
         </form>
-        </Container>
-        </main>
+      </div>
       <Box mt={5}>
         <Copyright />
       </Box>
-    </div>
+    </Container>
   );
-
-import React from 'react'
-
-import FormEdit from '../components/FormEdit'
-
-//import api from '../lib/api'
-
-function Edit (props) {
-  // async function onSubmit (post) {
-  //   const payload = await api.newPost(post)
-  //   console.log(payload)
-
-  //   window.alert(payload.data.post._id)
-
-  //   props.history.push('/')
-  // }
-
-  return (
-    <FormEdit
-     
-    />
-  )
-
 }
-
-export default Edit

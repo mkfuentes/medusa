@@ -10,10 +10,13 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
+          <Switch>
+          <React.Fragment>
           <Route path="/" component={Resumen} exact />
           <Route path="/add" component={Add} exact />
           <Route path="/edit" component={Edit} exact />
           <Route path="/sell" component={Sell} exact />
+          </React.Fragment>
         </Switch>
       </div>
     </BrowserRouter>
