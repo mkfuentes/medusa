@@ -12,19 +12,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Dashboard from "../components/DashBoard";
+import FormAdd from '../components/FormAdd'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Medusa Project
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+//import api from '../lib/api'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -63,6 +53,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Medusa Project
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
 export default function Add() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -73,7 +76,6 @@ export default function Add() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
 
   return (
     <div className={classes.root}>
