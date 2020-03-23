@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:8080'
 
-async function login (email, password) {
+async function login(email, password) {
   const emptyResponse = { data: { token: '' } }
 
   try {
@@ -32,7 +32,7 @@ async function login (email, password) {
   }
 }
 
-async function validateSession (token) {
+async function validateSession(token) {
   const emptyResponse = { data: { token: '' } }
 
   if (!token) return emptyResponse
@@ -54,12 +54,11 @@ async function validateSession (token) {
   }
 }
 
-async function getProducts () {
-  const emptyResponse = { data: { products: [] } }
+async function getProducts() {
+const emptyResponse = { data: { products: [] } }
 
   try {
     const token = window.sessionStorage.getItem('authorization')
-
     const response = await window.fetch(`${API_URL}/products`, {
       headers: { authorization: token }
     })
@@ -89,7 +88,7 @@ async function getProducts () {
   }
 }
 
-async function newProduct (product) {
+async function newProduct(product) {
   try {
     const token = window.sessionStorage.getItem('authorization')
 
@@ -126,7 +125,7 @@ async function newProduct (product) {
   }
 }
 
-async function getProduct (productId) {
+async function getProduct(productId) {
   try {
     const token = window.sessionStorage.getItem('authorization')
 

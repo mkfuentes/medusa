@@ -3,49 +3,16 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Dashboard from "../components/DashBoard";
+import useStyles from "../assets/styles/MakeStyles"
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Medusa Project
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2)
-  }
-}));
-
-export default function FormEdit(props) {
-
+ function FormEdit(props) {
+  const classes = useStyles();
   const [codeBar,setCodeBar] = useState('')
   const [description,setDescription] = useState('')
   const [pricePublic,setPricePublic] = useState('')
@@ -73,20 +40,23 @@ export default function FormEdit(props) {
   }
 
 
-
-  const classes = useStyles();
-
   return (
-    <Container component="main" maxWidth="xs">
+     <div className={classes.root}>
+      <Dashboard />
       <CssBaseline />
-      <div className={classes.paper}>
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="md" className={classes.containerbox}>
         <Avatar className={classes.avatar}>
           <EditOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Modificar Producto
         </Typography>
-        <form className={classes.form} onSubmit={onSubmit}>
+        <form className=
+        {classes.form} 
+        onSubmit={onSubmit} 
+        noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
               <TextField
@@ -153,20 +123,24 @@ export default function FormEdit(props) {
               />
             </Grid>
           </Grid>
-          <Button
+          <Grid item xs={12}>
+          <Button 
             type="submit"
             fullWidth
             variant="contained"
-            color="succes"
+            color="primary"
             className={classes.submit}
           >
             Modificar Producto
           </Button>
+          </Grid>
+          
         </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
+        </Container>
+        </main>
+     
+    </div>
   );
-}
+  }
+  
+  export default FormEdit
