@@ -65,7 +65,8 @@ const useStyles = makeStyles(theme => ({
     display: "none"
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    color: "#E2C792"
   },
   drawerPaper: {
     position: "relative",
@@ -124,7 +125,7 @@ export default function Dashboard() {
       <CssBaseline />
       <AppBar
         position="absolute"
-        style={{ backgroundColor: "#01579b" }}
+        style={{ backgroundColor: "#2A2B37" }}
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar color="inherit" className={classes.toolbar}>
