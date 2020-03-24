@@ -20,6 +20,9 @@ import Dashboard from "../components/DashBoard";
   const [priceStore,setPriceStore] = useState('')
   const [department,setDepartment] = useState('')
   
+  function onChange (event) {
+    if (props.onChange) props.onChange(event)
+  }
   function onSubmit (event) {
     event.preventDefault()
 
@@ -61,7 +64,7 @@ import Dashboard from "../components/DashBoard";
               <Grid item xs={12} md={12}>
                 <TextField
                   autoComplete="false"
-                  name="Codigo de Barras"
+                  name="codeBar"
                   variant="outlined"
                   required
                   fullWidth
@@ -79,7 +82,7 @@ import Dashboard from "../components/DashBoard";
                   fullWidth
                   id="Description"
                   label="Descripcion"
-                  name="Description"
+                  name="description"
                   autoComplete="Description"
                   value={description}
                   onChange={(event) => setDescription(event.target.value)}
@@ -92,7 +95,7 @@ import Dashboard from "../components/DashBoard";
                   fullWidth
                   id="pricePublic"
                   label="Precio Publico"
-                  name="price public"
+                  name="pricepublic"
                   type="number"
                   value={pricePublic}
                 onChange={(event) => setPricePublic(event.target.value)}

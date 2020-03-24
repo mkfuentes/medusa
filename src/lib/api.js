@@ -91,7 +91,7 @@ const emptyResponse = { data: { products: [] } }
 async function newProducts(product) {
   try {
     const token = window.sessionStorage.getItem('authorization')
-
+console.log(token)
     const response = await window.fetch(`${API_URL}/products`, {
       method: 'POST',
       headers: {

@@ -19,6 +19,9 @@ import useStyles from "../assets/styles/MakeStyles"
   const [priceStore,setPriceStore] = useState('')
   const [department,setDepartment] = useState('')
   
+  function onChange (event) {
+    if (props.onChange) props.onChange(event)
+  }
   function onSubmit (event) {
     event.preventDefault()
 
