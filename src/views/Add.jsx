@@ -9,7 +9,7 @@ import api from '../lib/api'
     console.log(payload)
 
     window.alert(payload.data.product._id)
-
+    console.log(props.history)
     props.history.push('/')
   }
 

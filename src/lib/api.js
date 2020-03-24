@@ -82,7 +82,7 @@ const emptyResponse = { data: { products: [] } }
 
     return payload
   } catch (error) {
-    window.alert('Ocurrió un error al obtener los posts')
+    window.alert('Ocurrió un error al obtener los productos')
 
     return emptyResponse
   }
