@@ -14,9 +14,6 @@ import ListItems from "./ListItem";
 import useStyles from "../assets/styles/MakeStyles"
 
 
-
-
-
 const drawerWidth = 240;
 
 
@@ -32,11 +29,11 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="absolute"
+        style={{ backgroundColor: "#2A2B37" }}
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar color="inherit" className={classes.toolbar}>
@@ -78,11 +75,14 @@ export default function Dashboard() {
         <Divider />
         <ListItems />
       </Drawer>
+<<<<<<< HEAD
       </div>
+=======
+
+      {/* <Box pt={4}>
+            <Copyright />
+          </Box> */}
+    </div>
+>>>>>>> mkfuentes
   );
 }
-
-
-       
-       
-   

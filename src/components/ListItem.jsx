@@ -6,6 +6,7 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
+import HomeIcon from "@material-ui/icons/Home";
 import LayersIcon from "@material-ui/icons/Layers";
 import { Link } from "react-router-dom";
 
@@ -41,14 +42,24 @@ function ListItems() {
           <BarChartIcon />
         </ListItemIcon>
         <Link to="/">
-          <ListItemText primary="Reportes" />
+          <ListItemText primary="Landing" />
         </Link>
       </ListItem>
       <ListItem button>
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
-        <ListItemText primary="Integrations" />
+        <Link to="/resumen">
+          <ListItemText primary="Reportes" />
+        </Link>
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <HomeIcon />
+        </ListItemIcon>
+        <Link to="/">
+          <ListItemText primary="Home" />
+        </Link>
       </ListItem>
     </div>
   );

@@ -6,10 +6,35 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Input from "@material-ui/core/Input";
 import Orders from "../components/Orders";
+import { makeStyles } from "@material-ui/core/styles";
 import Dashboard from "../components/DashBoard";
-import useStyles from '../assets/styles/MakeStyles'
 
-function Sell(props) {
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex"
+  },
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    height: "100vh",
+    overflow: "auto"
+  },
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4)
+  },
+  paper: {
+    padding: theme.spacing(2),
+    display: "flex",
+    overflow: "auto",
+    flexDirection: "column"
+  },
+  fixedHeight: {
+    height: 240
+  }
+}));
+
+export default function Sell(props) {
   const [codeBar,setCodeBar] = useState('')
   function onSubmit (event) {
     event.preventDefault()
@@ -21,16 +46,10 @@ function Sell(props) {
     }
 
     setCodeBar('')
-  
-  }
-
-
-  
+  } 
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
   return (
-    
     <div className={classes.root}>
       <Dashboard />
       <CssBaseline />
@@ -42,11 +61,11 @@ function Sell(props) {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* CodeBar */}
-        
+
             <Grid item xs={12} md={8} onSubmit={onSubmit}>
               <Paper className={classes.paper}>
-                <Input id="codebar" 
-                placeholder="BarCode" 
+                <Input id="codebar"
+                placeholder="BarCode"
                 autoFocus
                 value={codeBar}
                 onChange={(event) => setCodeBar(event.target.value)}/>
@@ -70,8 +89,5 @@ function Sell(props) {
       </main>
       </form>
     </div>
-    
   );
 }
-
-export default Sell
