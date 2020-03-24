@@ -1,45 +1,35 @@
 import React from "react";
-import clsx from "clsx";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
+import axios from "axios";
+import { Component } from "react";
 import Dashboard from "../components/DashBoard";
-import useStyles from '../assets/styles/MakeStyles'
+import CssBaseline from "@material-ui/core/CssBaseline";
 
+export default class Resumen extends Component {
+  state = {
+    product: []
+  };
+  async componentDidMount() {
+    const res = await axios.get("http://localhost:8080/products");
+    console.log(res.data.data.product);
+    this.setState({ product: res.data.data.product });
+  }
+  render() {
+    return (
+      <div className="row">
+        <Dashboard />
+        <CssBaseline />
 
-
- function Resumen() {
-  const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
-  return (
-    <div className={classes.root}>
-      <Dashboard/>
-      <CssBaseline />
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {/* Graph */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}></Paper>
-            </Grid>
-
-            {/* ReportList*/}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}></Paper>
-            </Grid>
-
-            {/* Total */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}></Paper>
-            </Grid>
-          </Grid>
-        </Container>
-      </main>
-    </div>
-  );
+        <div className="col-md-4">Productos</div>
+        <div className="col-md-8">
+          <ul className="list-group">
+            {this.state.product.map(products => (
+              <li list-group-item list-group-item0-action key={products._id}>
+                {products.description}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default Resumen
