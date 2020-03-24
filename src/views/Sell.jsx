@@ -34,10 +34,8 @@ function Sell(props) {
     <div className={classes.root}>
       <Dashboard />
       <CssBaseline />
-
       <form className={classes.form} noValidate
         onSubmit={onSubmit}>
-
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
 
