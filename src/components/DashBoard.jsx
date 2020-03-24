@@ -78,18 +78,7 @@ export default function Dashboard() {
         <Divider />
         <ListItems />
       </Drawer>
-<<<<<<< HEAD
-
-      {/* <Box pt={4}>
-            <Copyright />
-          </Box> */}
-    </div>
-
-      
-
-=======
       </div>
->>>>>>> 532e0a49a0a13ed3ac7a59476bc67445197507a1
   );
 }
 

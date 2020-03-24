@@ -88,7 +88,7 @@ const emptyResponse = { data: { products: [] } }
   }
 }
 
-async function newProduct(product) {
+async function newProducts(product) {
   try {
     const token = window.sessionStorage.getItem('authorization')
 
@@ -157,7 +157,7 @@ const api = {
   login,
   validateSession,
   getProducts,
-  newProduct,
+  newProducts,
   getProduct
 }
 
