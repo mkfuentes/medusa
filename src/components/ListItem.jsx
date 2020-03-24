@@ -41,7 +41,7 @@ function ListItems() {
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
-        <Link to="/reportes">
+        <Link to="/resumen">
           <ListItemText primary="Reportes" />
         </Link>
       </ListItem>
