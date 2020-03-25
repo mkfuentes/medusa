@@ -40,7 +40,7 @@ import useStyles from "../assets/styles/MakeStyles"
 
   return (
      <div className={classes.root}>
-      <Dashboard />
+      
       <CssBaseline />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

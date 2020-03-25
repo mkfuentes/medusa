@@ -40,15 +40,9 @@ function ListItems() {
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
-        <Link to="/">
+        <Link to="/resumen">
           <ListItemText primary="Reportes" />
         </Link>
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <LayersIcon />
-        </ListItemIcon>
-        <ListItemText primary="Integrations" />
       </ListItem>
     </div>
   );

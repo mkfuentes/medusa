@@ -8,6 +8,7 @@ import ValidateSession from './components/ValidateSession'
 import Login from './views/Login'
 //import Logout from './views/Logout'
 import api from './lib/api'
+import Landing from './views/Landing';
 
 
 function App() {
@@ -17,23 +18,23 @@ async function validateSession(token){
   setAuthorization(payload.data.token)
 }  
 return (
-    <BrowserRouter>
-      <div className="App">
+  <BrowserRouter>
+    <div className="App">
       {authorization && <ValidateSession onValidate={validateSession} />}
 
-        <Switch>
-          
-          <React.Fragment>
-          <Route path="/login" component ={Login}/>
-          <Route path="/" component={Resumen} exact />
+      <Switch>
+        <React.Fragment>
+          <Route path="/" component={Landing} exact />
+          <Route path="/login" component={Login} />
           <Route path="/add" component={Add} exact />
           <Route path="/edit" component={Edit} exact />
           <Route path="/sell" component={Sell} exact />
-          </React.Fragment>
-        </Switch>
-      </div>
-    </BrowserRouter>
-  );
+          <Route path="/resumen" component={Resumen} exact />
+        </React.Fragment>
+      </Switch>
+    </div>
+  </BrowserRouter>
+);
 }
 
 export default App;
