@@ -9,6 +9,7 @@ import Login from './views/Login'
 //import Logout from './views/Logout'
 import api from './lib/api'
 import Landing from './views/Landing';
+import Logout from "./views/Logout";
 
 
 function App() {
@@ -30,6 +31,7 @@ return (
           <Route path="/edit" component={Edit} exact />
           <Route path="/sell" component={Sell} exact />
           <Route path="/resumen" component={Resumen} exact />
+          <Route path="/logout" component={Logout} exact />
         </React.Fragment>
       </Switch>
     </div>

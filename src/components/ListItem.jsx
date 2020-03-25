@@ -8,6 +8,7 @@ import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import LayersIcon from "@material-ui/icons/Layers";
 import { Link } from "react-router-dom";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 function ListItems() {
   return (
@@ -42,6 +43,14 @@ function ListItems() {
         </ListItemIcon>
         <Link to="/resumen">
           <ListItemText primary="Reportes" />
+        </Link>
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <ExitToAppIcon />
+        </ListItemIcon>
+        <Link to="/logout">
+          <ListItemText primary="Logout" />
         </Link>
       </ListItem>
     </div>
