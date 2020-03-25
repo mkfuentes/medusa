@@ -1,13 +1,17 @@
 
 import React ,{ Component }from 'react'
 import FormAdd from '../components/FormAdd'
-import api from '../lib/api'
+import axios from 'axios'
 
  class Add extends Component{
   async  onSubmit (product) {
-    const payload = await api.newProducts(product)
-    console.log(payload)
-      window.alert(payload.data.product._id)
+     
+
+      const res = await axios.post("http://localhost:8080/products");
+  
+      console.log(res.data.data.product);
+        
+      
    
   }
 render(){

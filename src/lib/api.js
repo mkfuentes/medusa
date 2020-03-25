@@ -59,12 +59,11 @@ const emptyResponse = { data: { products: [] } }
 
   try {
     const token = window.sessionStorage.getItem('authorization')
-    const response = await window.fetch(`${API_URL}/products`, {
+    const response = await window.axios(`${API_URL}/products`, {
       headers: { authorization: token }
     })
 
     const payload = await response.json()
-
     if (!response.ok) {
       if (response.status >= 500) window.alert('El server esta morido :c')
       else window.alert('Las credenciales son incorrectas')
@@ -72,8 +71,8 @@ const emptyResponse = { data: { products: [] } }
       return emptyResponse
     }
 
-    payload.data.products = payload.data.products.map((badProduct) => ({
-      id: badProduct._id,
+    payload.data.data.products = payload.data.data.products.map((badProduct) => ({
+      _id: badProduct._id,
       codeBar: badProduct.codeBar,
       description: badProduct.description,
       pricePublic: badProduct.pricePublic,
@@ -99,7 +98,7 @@ console.log(token)
         authorization: token
       },
       body: JSON.stringify({
-        codeBar: product.codeBar,
+        barCode: product.data.barCode,
         description: product.description,
         pricePublic: product.pricePublic,
         priceStore: product.priceStore,

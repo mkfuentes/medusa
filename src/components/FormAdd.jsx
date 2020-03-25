@@ -68,7 +68,7 @@ import Dashboard from "../components/DashBoard";
                   variant="outlined"
                   required
                   fullWidth
-                  id="barCode"
+                  id="codeBar"
                   label="Codigo de Barras"
                   autoFocus
                   value={codeBar}
