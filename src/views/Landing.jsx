@@ -52,6 +52,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 345,
     margin: theme.spacing(3, 2),
     display: "inline-block"
+  },
+  appbar: {
+    display: "flex"
   }
 }));
 
@@ -61,7 +64,11 @@ export default function Landing() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="absolut" style={{ backgroundColor: "#2A2B37" }}>
+      <AppBar
+        position="absolut"
+        style={{ backgroundColor: "#2A2B37" }}
+        className={classes.appbar}
+      >
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             Medusa

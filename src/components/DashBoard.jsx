@@ -32,11 +32,11 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="absolute"
+        style={{ backgroundColor: "#2A2B37" }}
         className={clsx(classes.appBar, open && classes.appBarShift)}
       >
         <Toolbar color="inherit" className={classes.toolbar}>
@@ -78,7 +78,7 @@ export default function Dashboard() {
         <Divider />
         <ListItems />
       </Drawer>
-      </div>
+    </div>
   );
 }
 

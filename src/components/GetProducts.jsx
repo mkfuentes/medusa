@@ -5,13 +5,19 @@ import { Component } from "react";
 
 export default class Resumen extends Component {
   state = {
-    product: []
-  };
-  async componentDidMount() {
-    const res = await axios.get("http://localhost:8080/products");
-    console.log(res.data.data.product);
-    this.setState({ product: res.data.data.product });
+    sales: [],
+    products: []
   }
+
+  async componentDidMount() {
+    const res = await axios.get("http://localhost:8080/sales")
+    const pro = await axios.get("http://localhost:8080/products")
+    console.log(res.data.data.sale)
+    console.log(pro.data.data.product);
+    this.setState({ sales: res.data.data.sale })
+    this.setState({ products: pro.data.data.product})
+  }
+
   render() {
     return (
       <table class="table">
@@ -24,12 +30,14 @@ export default class Resumen extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.product.map(products => (
+          {this.state.sales.map(sales => (
             <tr>
-              <th>{products.barCode}</th>
-              <td list-group-item list-group-item0-action key={products._id}>
-                {products.description}
+              <th>{sales.barCode}</th>
+              <td key={sales._id}>
+                Temporal
               </td>
+              <td>{sales.fechaVenta}</td>
+              <td>{sales.cantidad}</td>
             </tr>
           ))}
         </tbody>

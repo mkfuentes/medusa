@@ -12,7 +12,7 @@ function Login (props) {
   useEffect(() => {
     const token = window.sessionStorage.getItem('authorization')
 
-    if (token) replace('/')
+    if (token) replace('/resumen')
   }, [replace, authorization])
 
   async function onLogin (auth) {

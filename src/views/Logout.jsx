@@ -4,7 +4,7 @@ class Logout extends Component {
   componentDidMount() {
     window.sessionStorage.removeItem("Authorization");
 
-    this.props.history.replace("./login");
+    this.props.history.replace("/");
   }
   render() {
     return <div />;
