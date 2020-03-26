@@ -14,6 +14,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Cards from "../components/Cards";
 import { flexbox } from "@material-ui/system";
 import { Link } from "react-router-dom";
+import Image from '../assets/img/wall.png'
 
 require("typeface-roboto");
 
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   main: {
     marginRight: theme.spacing(2),
     marginLeft: theme.spacing(2),
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
   },
   mainSecond: {
     backgroundColor: "#2A2B37",
@@ -73,7 +74,7 @@ export default function Landing() {
           <Typography variant="h6" className={classes.title}>
             Medusa
           </Typography>
-          <Link to="/login">
+          <Link to="/login"> 
             <Typography className={classes.login}>Iniciar sesion</Typography>
           </Link>
           <Button

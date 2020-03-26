@@ -66,11 +66,10 @@ export default function Cards() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+              Card
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur repudiandae nam nostrum excepturi voluptatem, exercitationem, et est sint quos odit veritatis numquam quo, odio iste in eius eveniet ipsum cum!
             </Typography>
           </CardContent>
         </CardActionArea>
