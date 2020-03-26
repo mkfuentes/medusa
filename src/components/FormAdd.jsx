@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import useStyles from "../assets/styles/MakeStyles"
 import Container from "@material-ui/core/Container";
 import Dashboard from "../components/DashBoard";
+import axios from 'axios'
 
 
  function FormAdd(props) {
@@ -18,12 +19,18 @@ import Dashboard from "../components/DashBoard";
   const [description,setDescription] = useState('')
   const [pricePublic,setPricePublic] = useState('')
   const [priceStore,setPriceStore] = useState('')
-  const [department,setDepartment] = useState('')
-  
-  function onChange (event) {
-    if (props.onChange) props.onChange(event)
-  }
-  function onSubmit (event) {
+   const [department, setDepartment] = useState('')
+   const [cantidad, setCantidad] = useState('');
+
+   function onSubmit(event) {
+     axios.post("http://localhost:8080/products", {
+       barCode: setCodeBar,
+       description: setDescription,
+       pricePublic: setPricePublic,
+       priceStore: setPriceStore,
+       department: setDepartment,
+       cantidad: setCantidad
+     });
     event.preventDefault()
 
     if (props.onSubmit) {
@@ -41,8 +48,14 @@ import Dashboard from "../components/DashBoard";
     setPricePublic('')
     setPriceStore('')
     setDepartment('')
+<<<<<<< HEAD
   }
   
+=======
+    setCantidad('')
+   }
+   
+>>>>>>> 3ca32e998e181a20cd701ebbe238b6063f3a0a3b
   return (
     <div className={classes.root}>
       <Dashboard />
@@ -124,7 +137,24 @@ import Dashboard from "../components/DashBoard";
                   name="departamento"
                   autoComplete="departamento"
                   value={department}
+<<<<<<< HEAD
                 onChange={(event) => setDepartment(event.target.value)}
+=======
+                  onChange={event => setDepartment(event.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="Cantidad"
+                  label="Cantidad"
+                  name="Cantidad"
+                  autoComplete="Cantidad"
+                  value={cantidad}
+                  onChange={event => setCantidad(event.target.value)}
+>>>>>>> 3ca32e998e181a20cd701ebbe238b6063f3a0a3b
                 />
               </Grid>
             </Grid>
