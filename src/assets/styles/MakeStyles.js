@@ -28,8 +28,8 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.success.main,
     display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -99,9 +99,14 @@ const useStyles = makeStyles(theme => ({
   },
   fixedHeight: {
     height: 240
+  },
+  iconoAdd: {
+    textAlign: "center",
+    display: "flex",
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    paddingBottom: theme.spacing(4)
   }
 }));
  export default useStyles
-
-
- 

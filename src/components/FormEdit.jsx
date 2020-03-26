@@ -54,8 +54,8 @@ import useStyles from "../assets/styles/MakeStyles"
           Modificar Producto
         </Typography>
         <form className=
-        {classes.form} 
-        onSubmit={onSubmit} 
+        {classes.form}
+        onSubmit={onSubmit}
         noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
