@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import useStyles from "../assets/styles/MakeStyles"
 import Container from "@material-ui/core/Container";
 import Dashboard from "../components/DashBoard";
+import axios from 'axios'
 
 
  function FormAdd(props) {
@@ -21,7 +22,15 @@ import Dashboard from "../components/DashBoard";
    const [department, setDepartment] = useState('')
    const [cantidad, setCantidad] = useState('');
 
-  function onSubmit (event) {
+   function onSubmit(event) {
+     axios.post("http://localhost:8080/products", {
+       barCode: setCodeBar,
+       description: setDescription,
+       pricePublic: setPricePublic,
+       priceStore: setPriceStore,
+       department: setDepartment,
+       cantidad: setCantidad
+     });
     event.preventDefault()
 
     if (props.onSubmit) {
@@ -41,8 +50,8 @@ import Dashboard from "../components/DashBoard";
     setPriceStore('')
     setDepartment('')
     setCantidad('')
-  }
-  
+   }
+   
   return (
     <div className={classes.root}>
       <Dashboard />
@@ -132,7 +141,7 @@ import Dashboard from "../components/DashBoard";
                   label="Cantidad"
                   name="Cantidad"
                   autoComplete="Cantidad"
-                  value={department}
+                  value={cantidad}
                   onChange={event => setCantidad(event.target.value)}
                 />
               </Grid>
