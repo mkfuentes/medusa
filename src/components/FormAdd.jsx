@@ -18,9 +18,11 @@ import Dashboard from "../components/DashBoard";
   const [description,setDescription] = useState('')
   const [pricePublic,setPricePublic] = useState('')
   const [priceStore,setPriceStore] = useState('')
-   const [department, setDepartment] = useState('')
-   const [cantidad, setCantidad] = useState('');
-
+  const [department,setDepartment] = useState('')
+  
+  function onChange (event) {
+    if (props.onChange) props.onChange(event)
+  }
   function onSubmit (event) {
     event.preventDefault()
 
@@ -30,8 +32,7 @@ import Dashboard from "../components/DashBoard";
         description,
         pricePublic,
         priceStore,
-        department,
-        cantidad
+        department
       })
     }
 
@@ -40,7 +41,6 @@ import Dashboard from "../components/DashBoard";
     setPricePublic('')
     setPriceStore('')
     setDepartment('')
-    setCantidad('')
   }
   
   return (
@@ -56,12 +56,15 @@ import Dashboard from "../components/DashBoard";
           <Typography component="h1" variant="h5">
             Agregar Producto
           </Typography>
-          <form onSubmit={onSubmit} className={classes.form}>
+          <form 
+            onSubmit={onSubmit}
+            className={classes.form} 
+            >
             <Grid container spacing={2}>
               <Grid item xs={12} md={12}>
                 <TextField
                   autoComplete="false"
-                  name="Codigo de Barras"
+                  name="codeBar"
                   variant="outlined"
                   required
                   fullWidth
@@ -69,7 +72,7 @@ import Dashboard from "../components/DashBoard";
                   label="Codigo de Barras"
                   autoFocus
                   value={codeBar}
-                  onChange={event => setCodeBar(event.target.value)}
+                  onChange={(event) => setCodeBar(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={12}>
@@ -79,10 +82,10 @@ import Dashboard from "../components/DashBoard";
                   fullWidth
                   id="Description"
                   label="Descripcion"
-                  name="Description"
+                  name="description"
                   autoComplete="Description"
                   value={description}
-                  onChange={event => setDescription(event.target.value)}
+                  onChange={(event) => setDescription(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={12}>
@@ -92,10 +95,11 @@ import Dashboard from "../components/DashBoard";
                   fullWidth
                   id="pricePublic"
                   label="Precio Publico"
-                  name="price public"
+                  name="pricepublic"
                   type="number"
                   value={pricePublic}
-                  onChange={event => setPricePublic(event.target.value)}
+                onChange={(event) => setPricePublic(event.target.value)}
+
                 />
               </Grid>
               <Grid item xs={12} md={12}>
@@ -107,7 +111,7 @@ import Dashboard from "../components/DashBoard";
                   type="number"
                   id="priceStore"
                   value={priceStore}
-                  onChange={event => setPriceStore(event.target.value)}
+                onChange={(event) => setPriceStore(event.target.value)}
                 />
               </Grid>
               <Grid item xs={12} md={12}>
@@ -120,20 +124,7 @@ import Dashboard from "../components/DashBoard";
                   name="departamento"
                   autoComplete="departamento"
                   value={department}
-                  onChange={event => setDepartment(event.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} md={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="Cantidad"
-                  label="Cantidad"
-                  name="Cantidad"
-                  autoComplete="Cantidad"
-                  value={department}
-                  onChange={event => setCantidad(event.target.value)}
+                onChange={(event) => setDepartment(event.target.value)}
                 />
               </Grid>
             </Grid>
@@ -151,6 +142,7 @@ import Dashboard from "../components/DashBoard";
           </form>
         </Container>
       </main>
+      
     </div>
   );
 }
