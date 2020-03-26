@@ -48,14 +48,9 @@ import axios from 'axios'
     setPricePublic('')
     setPriceStore('')
     setDepartment('')
-<<<<<<< HEAD
-  }
-  
-=======
     setCantidad('')
    }
    
->>>>>>> 3ca32e998e181a20cd701ebbe238b6063f3a0a3b
   return (
     <div className={classes.root}>
       <Dashboard />
@@ -137,9 +132,6 @@ import axios from 'axios'
                   name="departamento"
                   autoComplete="departamento"
                   value={department}
-<<<<<<< HEAD
-                onChange={(event) => setDepartment(event.target.value)}
-=======
                   onChange={event => setDepartment(event.target.value)}
                 />
               </Grid>
@@ -154,7 +146,6 @@ import axios from 'axios'
                   autoComplete="Cantidad"
                   value={cantidad}
                   onChange={event => setCantidad(event.target.value)}
->>>>>>> 3ca32e998e181a20cd701ebbe238b6063f3a0a3b
                 />
               </Grid>
             </Grid>
