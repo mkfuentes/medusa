@@ -14,7 +14,11 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Cards from "../components/Cards";
 import { flexbox } from "@material-ui/system";
 import { Link } from "react-router-dom";
-import Image from '../assets/img/wall.png'
+import Image from "../assets/img/checkout.jpg";
+import Image1 from "../assets/img/card1.jpg";
+import Image2 from "../assets/img/card2.jpg";
+import Image3 from "../assets/img/card3.jpg";
+import Grid from "@material-ui/core/Grid";
 
 require("typeface-roboto");
 
@@ -39,23 +43,43 @@ const useStyles = makeStyles(theme => ({
     }
   },
   main: {
-    marginRight: theme.spacing(2),
-    marginLeft: theme.spacing(2),
-    marginTop: theme.spacing(2),
-  },
-  mainSecond: {
-    backgroundColor: "#2A2B37",
-    color: "#E2C792",
-    display: "flex",
-    justifyContent: "center"
+    background: "#7cd3c3",
+    backgroundImage: `url(${Image})`,
+    [theme.breakpoints.down("sm")]: {
+      background: "#2A2B37",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      align: "center"
+    },
+    height: 600,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center center"
   },
   card: {
     maxWidth: 345,
     margin: theme.spacing(3, 2),
-    display: "inline-block"
+    display: "inline-block",
+  },
+  mainSecond: {
+    backgroundColor: "#2A2B37",
+    color: "#E2C792",
+    [theme.breakpoints.down("sm")]: {
+      display: "inline-block"
+    },
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   appbar: {
     display: "flex"
+  },
+  typograph: {
+    color: "white",
+    padding: theme.spacing(4, 4),
+    [theme.breakpoints.down("sm")]: {
+      alignItems: "center"
+    }
   }
 }));
 
@@ -74,7 +98,7 @@ export default function Landing() {
           <Typography variant="h6" className={classes.title}>
             Medusa
           </Typography>
-          <Link to="/login"> 
+          <Link to="/login">
             <Typography className={classes.login}>Iniciar sesion</Typography>
           </Link>
           <Button
@@ -88,40 +112,101 @@ export default function Landing() {
         </Toolbar>
       </AppBar>
       <main className={classes.main}>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
+        <Typography
+          fontWeight="bold"
+          variant="h3"
+          className={classes.typograph}
+        >
+          <Grid
+            container
+            direction="row"
+            justify="flex-end"
+            alignItems="center"
+          >
+            Bienvenido al nuevo
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            justify="flex-end"
+            alignItems="center"
+          >
+            administrador de tu negocio
+          </Grid>
         </Typography>
       </main>
       <main className={classes.mainSecond}>
-        <Cards />
-        <Cards />
-        <Cards />
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt="Contemplative Reptile"
+              height="350"
+              width="340"
+              image={Image1}
+              title="Contemplative Reptile"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                Card
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Consectetur repudiandae nam nostrum excepturi voluptatem,
+                exercitationem, et est sint quos odit veritatis numquam quo,
+                odio iste in eius eveniet ipsum cum!
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+        {/*Separacion de card*/}
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt="Contemplative Reptile"
+              height="350"
+              width="340"
+              image={Image2}
+              title="Contemplative Reptile"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                Card
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Consectetur repudiandae nam nostrum excepturi voluptatem,
+                exercitationem, et est sint quos odit veritatis numquam quo,
+                odio iste in eius eveniet ipsum cum!
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+        {/*Separacion de card*/}
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt="Contemplative Reptile"
+              height="350"
+              width="340"
+              image={Image3}
+              title="Contemplative Reptile"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                Card
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Consectetur repudiandae nam nostrum excepturi voluptatem,
+                exercitationem, et est sint quos odit veritatis numquam quo,
+                odio iste in eius eveniet ipsum cum!
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
       </main>
     </div>
   );
