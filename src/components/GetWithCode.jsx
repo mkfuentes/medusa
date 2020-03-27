@@ -6,27 +6,35 @@ import classes from "../assets/styles/MakeStyles";
 import Button from "@material-ui/core/Button";
 
 export default class getWithCode extends Component {
-  state = {
-    barCode: '',
-    product:[]
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      barCode: '',
+      product: []
+    }
+    this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this)
+  }
 
   onChange(e) {
     this.setState ({
       barCode: e.target.value
     })
   }
+  componentDidUpdate() {
+    console.log(this.state.barCode)
+  }
 
-  async componentDidMount() {
-    const res = await axios.get(`http://localhost:8080/products/`);
-    this.setState({ barCode: res.data.data.product });
-    console.log(res.data.data.product);
+  async onClick() {
+    const res = await axios.get(`http://localhost:8080/products/code/${this.state.barCode}`)
+    this.setState({ product: res.data.data.code })
+    console.log(this.state.product);
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit.bind(this)} className={classes.form}>
               <TextField
                 autoComplete="false"
                 variant="outlined"
@@ -41,12 +49,11 @@ export default class getWithCode extends Component {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+          color="primary"
+          onClick={this.onClick}
             >
               Agregar Producto
             </Button>
-
-        </form>
       </div>
     );
   }
